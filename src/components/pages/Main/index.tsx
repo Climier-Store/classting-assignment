@@ -3,66 +3,22 @@ import { useForm } from 'react-hook-form';
 import { useStopwatch } from 'react-timer-hook';
 import QuizSelectForm from 'src/components/recycles/QuizSelectForm';
 import Result from 'src/components/recycles/Result';
+import { QuizFormData } from './interface';
 import { MainWrapper } from './styled';
-
-interface QuestionsType {
-  response_code: number;
-  results: {
-    category: string;
-    correct_answer: string;
-    difficulty: string;
-    incorrect_answers: string[];
-    question: string;
-    type: string;
-  }[];
-}
-
-export interface QuizFormData {
-  selectAnswers: string[];
-}
+import useMain from './hooks';
 
 function Main() {
-  const [quizCount, setQuizCount] = React.useState<number>(-1);
-
   const { reset, setValue, watch } = useForm<QuizFormData>();
 
   const { start, pause, reset: watchReset, minutes, seconds } = useStopwatch({ autoStart: false });
 
-  const handleStartQuiz = React.useCallback(() => {
-    watchReset();
-    reset();
-    setQuizCount(0);
-    start();
-  }, [reset, start, watchReset]);
-
-  const handleNextQuiz = React.useCallback(() => {
-    if (quizCount === 9) {
-      pause();
-      setQuizCount(10);
-    } else {
-      setQuizCount(quizCount + 1);
-    }
-  }, [pause, quizCount]);
-
-  const [questions, setQuestions] = React.useState<QuestionsType>();
-
-  const fetchQuestions = React.useCallback(async () => {
-    const res = await fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple');
-    const resJson = await res.json();
-
-    setQuestions(resJson);
-  }, []);
-
-  const handleClickAnswer = React.useCallback(
-    (item: string) => {
-      setValue(`selectAnswers.${quizCount}`, item);
-    },
-    [quizCount, setValue]
-  );
-
-  React.useLayoutEffect(() => {
-    fetchQuestions();
-  }, [fetchQuestions]);
+  const { quizCount, handleStartQuiz, questions, handleNextQuiz, handleClickAnswer } = useMain({
+    watchReset,
+    reset,
+    start,
+    pause,
+    setValue,
+  });
 
   const selectAnswers = watch('selectAnswers');
 

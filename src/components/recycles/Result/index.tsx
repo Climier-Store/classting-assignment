@@ -1,6 +1,5 @@
 import React from 'react';
 import { RadialChart } from 'react-vis';
-import { ResultWrapper } from './styled';
 
 interface Props {
   time: string;
@@ -19,7 +18,7 @@ function Result(props: Props) {
   }, [successCount]);
 
   return (
-    <ResultWrapper>
+    <div>
       <RadialChart data={chartData} width={300} height={300} showLabels />
 
       <p>퀴즈를 마칠 때까지 소요된 시간: {time}</p>
@@ -28,7 +27,7 @@ function Result(props: Props) {
       <button type="button" onClick={onRetry}>
         다시 풀기
       </button>
-    </ResultWrapper>
+    </div>
   );
 }
 
