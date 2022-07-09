@@ -45,3 +45,6 @@
 ├── yarn.lock
 └── .gitignore
 ```
+
+## Deploy url
+https://climier-store.github.io/classting-assignment/
