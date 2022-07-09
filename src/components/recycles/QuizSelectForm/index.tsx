@@ -1,7 +1,7 @@
 import React from 'react';
 import { QuizSelectFormWrapper } from './styled';
 
-interface Props {
+export interface QuizSelectFormProps {
   quizCount: number;
   onNextQuiz: () => void;
 
@@ -14,7 +14,7 @@ interface Props {
   currentValue?: string;
 }
 
-function QuizSelectForm(props: Props) {
+function QuizSelectForm(props: QuizSelectFormProps) {
   const { quizCount, onNextQuiz, question, correctAnswer, incorrectAnswers, onClickAnswer, currentValue } = props;
 
   const randomAnswers = React.useMemo(() => {
