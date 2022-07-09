@@ -91,6 +91,7 @@ function Main() {
           successCount={
             questions?.results.filter((result, idx) => result.correct_answer === selectAnswers?.[idx]).length ?? 0
           }
+          onRetry={handleStartQuiz}
         />
       )}
     </MainWrapper>
