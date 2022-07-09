@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/classting-assignment/static/css/main.5e1448a2.css",
+    "main.js": "/classting-assignment/static/js/main.658c06a2.js",
+    "static/js/787.ee8f3879.chunk.js": "/classting-assignment/static/js/787.ee8f3879.chunk.js",
+    "index.html": "/classting-assignment/index.html",
+    "main.5e1448a2.css.map": "/classting-assignment/static/css/main.5e1448a2.css.map",
+    "main.658c06a2.js.map": "/classting-assignment/static/js/main.658c06a2.js.map",
+    "787.ee8f3879.chunk.js.map": "/classting-assignment/static/js/787.ee8f3879.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e1448a2.css",
+    "static/js/main.658c06a2.js"
+  ]
+}
