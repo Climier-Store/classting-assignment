@@ -2,6 +2,7 @@
   "name": "classting-assignment",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://climier-store.github.io/classting-assignment",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -12,6 +13,7 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-vis": "^1.11.11",
     "@types/styled-components": "^5.1.25",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.33.1",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
