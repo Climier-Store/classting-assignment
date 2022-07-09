@@ -51,12 +51,11 @@ function QuizSelectForm(props: Props) {
             );
           })}
           <p className="answer-result">{answerResult}</p>
+          <button type="button" onClick={onNextQuiz}>
+            다음
+          </button>
         </>
       )}
-
-      <button type="button" onClick={onNextQuiz}>
-        다음
-      </button>
     </QuizSelectFormWrapper>
   );
 }
